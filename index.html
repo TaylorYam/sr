@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=390, initial-scale=1.0">
-<title>板塊輪動策略報告 2026-03-26</title>
+<title>美股產業 ETF 量化動能策略 2026-04-08</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -17,99 +17,241 @@
     padding-bottom: 48px;
   }
 
-  /* Hero */
+  /* ── Hero ── */
   .hero {
     background: linear-gradient(160deg, #2C2018 0%, #5C4530 60%, #7A6448 100%);
     padding: 28px 24px 28px;
     text-align: center;
     border-radius: 32px;
-    margin-top: 16px;
     color: #FFF8F2;
+    margin-top: 16px;
   }
-  .hero-date { font-size: 11px; font-weight: 600; letter-spacing: 2px; opacity: 0.75; margin-bottom: 8px; }
-  .hero-title { font-size: 26px; font-weight: 900; line-height: 1.3; margin-bottom: 6px; }
-  .hero-badges { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
-  .hero-badge { background: rgba(255,248,242,0.18); border: 1px solid rgba(255,248,242,0.35); border-radius: 20px; padding: 4px 13px; font-size: 11.5px; font-weight: 700; }
+  .hero-title {
+    font-size: 26px;
+    font-weight: 900;
+    line-height: 1.3;
+    margin-bottom: 6px;
+  }
   .hero-subtitle {
-    font-size: 15px; font-weight: 400; line-height: 1.6; opacity: 1.0;
-    margin-top: 10px; margin-bottom: 14px;
-    border-top: 1px solid rgba(255,248,242,0.3); padding-top: 12px;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.6;
+    opacity: 1.0;
+    margin-top: 10px;
+    margin-bottom: 14px;
+    border-top: 1px solid rgba(255,248,242,0.3);
+    padding-top: 12px;
+  }
+  .hero-badges {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .hero-badge {
+    background: rgba(255,248,242,0.18);
+    border: 1px solid rgba(255,248,242,0.35);
+    border-radius: 20px;
+    padding: 4px 13px;
+    font-size: 11.5px;
+    font-weight: 700;
   }
 
-  /* Layout */
+  /* ── Layout ── */
   .section { margin: 14px 14px 0; }
+
   .card {
-    background: #FFFFFF; border-radius: 18px; padding: 16px 16px 18px;
-    margin-bottom: 10px; border: 1px solid #D6D0C4; position: relative; overflow: hidden;
+    background: #FFFFFF;
+    border-radius: 18px;
+    padding: 16px 16px 18px;
+    margin-bottom: 10px;
+    border: 1px solid #D6D0C4;
+    position: relative;
+    overflow: hidden;
   }
   .card::before {
-    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: #6B5438;
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: #6B5438;
   }
-  .card-label { font-size: 10px; font-weight: 800; letter-spacing: 2px; color: #6B5438; margin-bottom: 6px; }
-  .card-title { font-size: 17px; font-weight: 900; color: #2A2018; margin-bottom: 10px; line-height: 1.4; }
-  .card-subtitle { font-size: 11.5px; color: #8B7B60; font-weight: 500; margin-bottom: 12px; margin-top: -8px; line-height: 1.4; }
-  .arrow { text-align: center; font-size: 20px; color: #A49880; margin: 2px 0; }
+  .card-label {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #6B5438;
+    margin-bottom: 3px;
+  }
+  .card-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: #2A2018;
+    margin-bottom: 12px;
+  }
+  .card-subtitle {
+    font-size: 12px;
+    font-weight: 500;
+    color: #8B7B60;
+    margin-bottom: 10px;
+    margin-top: -8px;
+  }
+  .selection-explain {
+    font-size: 12px;
+    font-weight: 500;
+    color: #5C3D20;
+    background: #F5F0E8;
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-bottom: 12px;
+    line-height: 1.7;
+  }
+  .step-intro {
+    font-size: 12px;
+    font-weight: 500;
+    color: #8B7B60;
+    margin-bottom: 14px;
+    margin-top: -8px;
+  }
+  .arrow { text-align: center; font-size: 18px; color: #A49880; margin: 3px 0; }
 
-  /* SPY box */
+  /* ── Universe ── */
   .spy-box {
-    display: flex; align-items: center; gap: 10px;
-    background: linear-gradient(135deg, #2A2018, #4A3828); border-radius: 14px;
-    padding: 12px 16px; margin-bottom: 10px;
+    background: #2A2018;
+    border-radius: 14px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
   }
-  .spy-icon { font-size: 24px; }
+  .spy-icon { font-size: 28px; flex-shrink: 0; }
   .spy-body { flex: 1; }
-  .spy-label { font-size: 9px; color: #C4A882; letter-spacing: 2px; font-weight: 700; }
-  .spy-name { font-size: 15px; color: #FFF8F2; font-weight: 800; }
-  .spy-sub { font-size: 10px; color: #A49880; font-weight: 500; }
-  .spy-ticker { font-size: 18px; color: #D4C4A8; font-weight: 900; }
-
-  .breakdown-row { display: flex; align-items: center; gap: 10px; margin: 8px 0; }
-  .breakdown-line { flex: 1; height: 1.5px; background: #D4C4A8; }
-  .breakdown-label { font-size: 10px; color: #8B7B60; font-weight: 700; white-space: nowrap; }
-
-  /* Sector grid */
-  .sector-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-  .sector-cell {
-    display: flex; align-items: center; gap: 8px;
-    background: #F0EDE4; border: 1px solid #D6D0C4; border-radius: 10px; padding: 8px 10px;
+  .spy-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; color: #A49880; margin-bottom: 2px; }
+  .spy-name  { font-size: 16px; font-weight: 900; color: #FAF6F0; }
+  .spy-sub   { font-size: 11px; color: #A49880; font-weight: 500; margin-top: 2px; }
+  .spy-ticker {
+    font-size: 18px; font-weight: 900; color: #FAF6F0;
+    background: rgba(255,255,255,0.12);
+    border-radius: 10px;
+    padding: 6px 12px;
+    flex-shrink: 0;
   }
-  .sector-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+  .breakdown-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .breakdown-line {
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #6B5438, transparent);
+  }
+  .breakdown-label {
+    font-size: 12px;
+    font-weight: 800;
+    color: #FAF6F0;
+    background: #6B5438;
+    border-radius: 20px;
+    padding: 5px 14px;
+    letter-spacing: 1px;
+    flex-shrink: 0;
+  }
+  .sector-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+  }
+  .sector-cell {
+    background: #E6E0D4;
+    border: 1px solid #CCC4B4;
+    border-radius: 10px;
+    padding: 9px 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sector-icon { font-size: 20px; flex-shrink: 0; }
   .sector-info { flex: 1; }
   .sector-name { font-size: 11px; font-weight: 700; color: #4A3828; }
-  .sector-desc { font-size: 9px; color: #7A6850; font-weight: 500; line-height: 1.3; margin-top: 3px; }
+  .sector-desc { font-size: 9px; font-weight: 400; color: #7A6850; margin-top: 1px; line-height: 1.4; }
 
-  /* Allocation Chart */
+  /* ── Allocation Chart ── */
   .alloc-wrap { display: flex; flex-direction: column; gap: 8px; }
-  .alloc-bars { display: flex; align-items: flex-end; gap: 4px; height: 120px; }
-  .alloc-col { flex: 1; height: 100%; display: flex; flex-direction: column-reverse; border-radius: 5px 5px 0 0; overflow: hidden; }
+  .alloc-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 120px;
+  }
+  .alloc-col {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+  }
   .alloc-seg { width: 100%; flex-shrink: 0; }
-  .seg-xle  { background: #8A5A30; }
-  .seg-xlf  { background: #7A8A9A; }
-  .seg-xlv  { background: #6A9A7A; }
-  .seg-xly  { background: #C4A448; }
-  .seg-xlb  { background: #A89870; }
-  .seg-xlp  { background: #7A9868; }
-  .seg-xlu  { background: #6A8898; }
-  .seg-xlk  { background: #B07840; }
-  .seg-xli  { background: #8A7A6A; }
-  .seg-xlc  { background: #6878A8; }
-  .seg-xlre  { background: #9A7A8A; }
+  .alloc-dates {
+    display: flex;
+    gap: 3px;
+  }
+  .alloc-date {
+    flex: 1;
+    text-align: center;
+    font-size: 8.5px;
+    color: #9A9080;
+    font-weight: 600;
+  }
+  .alloc-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 10px;
+    margin-top: 2px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    color: #4A3828;
+    font-weight: 600;
+  }
+  .legend-dot {
+    width: 9px; height: 9px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
 
-  .alloc-dates { display: flex; gap: 4px; }
-  .alloc-date { flex: 1; text-align: center; font-size: 8.5px; color: #9A9080; font-weight: 600; }
-  .alloc-legend { display: flex; flex-wrap: wrap; gap: 6px 10px; margin-top: 2px; }
-  .legend-item { display: flex; align-items: center; gap: 4px; font-size: 10px; color: #4A3828; font-weight: 600; }
-  .legend-dot { width: 9px; height: 9px; border-radius: 3px; flex-shrink: 0; }
-
-  /* Momentum Score Bars */
-  .score-row { display: flex; align-items: center; gap: 7px; margin-bottom: 7px; }
-  .score-rank { font-size: 10px; color: #A49880; width: 16px; text-align: center; flex-shrink: 0; }
+  /* ── Momentum Score Bars ── */
+  .score-row {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 7px;
+  }
+  .score-rank  { font-size: 10px; color: #A49880; width: 16px; text-align: center; flex-shrink: 0; }
   .score-label { font-size: 11.5px; color: #4A3828; width: 50px; text-align: right; flex-shrink: 0; }
   .score-ticker { font-size: 10px; color: #9C9080; width: 30px; flex-shrink: 0; }
-  .score-bar-bg { flex: 1; height: 22px; background: #E2DCD0; border-radius: 11px; overflow: hidden; }
+  .score-bar-bg {
+    flex: 1;
+    height: 22px;
+    background: #E2DCD0;
+    border-radius: 11px;
+    overflow: hidden;
+  }
   .score-bar {
-    height: 100%; border-radius: 11px; display: flex; align-items: center;
-    justify-content: flex-end; padding-right: 7px; font-size: 10px; font-weight: 800; color: #FFF;
+    height: 100%;
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 7px;
+    font-size: 10px;
+    font-weight: 800;
+    color: #FFF;
   }
   .bar-in1 { background: linear-gradient(90deg, #3A8A60, #2A6A48); }
   .bar-in2 { background: linear-gradient(90deg, #5AAA80, #3A8A60); }
@@ -117,74 +259,52 @@
   .bar-in4 { background: linear-gradient(90deg, #98C8AE, #7ABA98); }
   .bar-out  { background: linear-gradient(90deg, #A8A498, #908C84); }
 
-  .score-tag { font-size: 9.5px; font-weight: 800; border-radius: 6px; padding: 2px 5px; flex-shrink: 0; }
-  .tag-in   { background: #EAF4EE; color: #1A5A38; border: 1px solid #8ABB9A; }
-  .tag-out  { background: #F0EAE0; color: #9A8060; border: 1px solid #D0C4A8; }
-  .tag-spy  { background: #EEF0F8; color: #3A4A7A; border: 1px solid #9AA8D0; }
+  .score-tag {
+    font-size: 9.5px;
+    font-weight: 800;
+    border-radius: 6px;
+    padding: 2px 5px;
+    flex-shrink: 0;
+  }
+  .tag-in  { background: #EAF4EE; color: #1A5A38; border: 1px solid #8ABB9A; }
+  .tag-out { background: #F0EAE0; color: #9A8060; border: 1px solid #D0C4A8; }
+  .tag-spy { background: #EEF0F8; color: #3A4A7A; border: 1px solid #9AA8D0; }
 
-  .score-divider { border: none; border-top: 1.5px dashed #C8C0B0; margin: 6px 0 8px; }
-  .score-note { text-align: center; font-size: 11px; color: #8B7B60; font-weight: 500; margin-top: 6px; line-height: 1.5; }
+  .score-divider {
+    border: none;
+    border-top: 1.5px dashed #C8C0B0;
+    margin: 6px 0 8px;
+  }
+  .score-note {
+    text-align: center;
+    font-size: 11px;
+    color: #8B7B60;
+    font-weight: 500;
+    margin-top: 6px;
+    line-height: 1.5;
+  }
   .score-note strong { color: #2A2018; font-weight: 800; }
 
-  /* Holdings */
-  .holding-list { display: flex; flex-direction: column; gap: 6px; }
-  .holding-item {
-    display: flex; align-items: center; gap: 8px;
-    border-radius: 12px; padding: 11px 13px; background: #EDF5F0; border: 1px solid #A8D4B8;
-  }
-  .holding-rank { font-size: 11px; color: #5A9A78; width: 18px; text-align: center; flex-shrink: 0; }
-  .holding-ticker { font-size: 14px; font-weight: 900; color: #1A5A38; width: 40px; flex-shrink: 0; }
-  .holding-name { font-size: 11.5px; color: #3A5C48; flex: 1; font-weight: 600; line-height: 1.3; }
-  .holding-weight-bar-bg { width: 72px; height: 20px; background: #D4E8DC; border-radius: 10px; overflow: hidden; flex-shrink: 0; }
-  .holding-weight-bar {
-    height: 100%; border-radius: 10px; background: linear-gradient(90deg, #4A9A68, #2A7A50);
-    display: flex; align-items: center; justify-content: flex-end;
-    padding-right: 7px; font-size: 11px; font-weight: 800; color: #FFF;
-  }
-
-  .holding-cash {
-    display: flex; align-items: center; gap: 8px;
-    border-radius: 12px; padding: 11px 13px;
-    background: #F6F0E4; border: 1.5px dashed #D4C4A0; margin-top: 6px;
-  }
-  .cash-icon { font-size: 18px; flex-shrink: 0; }
-  .cash-label { font-size: 13px; color: #7A5820; flex: 1; font-weight: 700; }
-  .cash-pct   { font-size: 16px; color: #7A5820; font-weight: 900; }
-
-  /* Summary Totals */
-  .total-strip { display: flex; gap: 8px; margin-top: 10px; }
-  .total-box { flex: 1; border-radius: 12px; padding: 10px 8px; text-align: center; }
-  .total-box.long-box  { background: #EDF5F0; border: 1.5px solid #8ABB9A; }
-  .total-box.cash-box  { background: #F6F0E4; border: 1.5px solid #D4C4A0; }
-  .total-box-label { font-size: 10px; color: #8B7B60; font-weight: 600; margin-bottom: 3px; }
-  .total-box-val   { font-size: 18px; font-weight: 900; }
-  .long-box .total-box-val { color: #1A5A38; }
-  .cash-box .total-box-val { color: #7A5820; }
-
-  /* Selection note */
-  .selection-explain {
-    background: #F0EDE4; border: 1px solid #CCC4B4; border-radius: 10px;
-    padding: 8px 12px; font-size: 11px; color: #6A4A28; font-weight: 500;
-    line-height: 1.5; margin-bottom: 10px;
-  }
-
-  /* Step intro */
-  .step-intro {
-    font-size: 12px; color: #7A5820; font-weight: 600;
-    background: #F5F0E8; border-left: 3px solid #6B5438; border-radius: 0 8px 8px 0;
-    padding: 8px 12px; margin-bottom: 12px; line-height: 1.5;
-  }
-
-  /* Disclaimer */
+  /* ── Disclaimer ── */
   .disclaimer {
-    margin: 6px 14px 0; background: #DED8CC; border-radius: 14px;
-    padding: 12px 14px; font-size: 10.5px; color: #7A5C40; line-height: 1.7; font-weight: 400;
+    margin: 6px 14px 0;
+    background: #DED8CC;
+    border-radius: 14px;
+    padding: 12px 14px;
+    font-size: 10.5px;
+    color: #7A5C40;
+    line-height: 1.7;
+    font-weight: 400;
   }
   .disclaimer strong { color: #4A3828; }
 
   .footer {
-    text-align: center; font-size: 10px; color: #A49880;
-    font-weight: 600; margin-top: 20px; letter-spacing: 1px;
+    text-align: center;
+    font-size: 10px;
+    color: #A49880;
+    font-weight: 600;
+    margin-top: 20px;
+    letter-spacing: 1px;
   }
 </style>
 </head>
@@ -213,7 +333,7 @@
     </p>
   </div>
 
-  <!-- Universe -->
+  <!-- STEP 01 Universe -->
   <div class="card">
     <div class="card-label">STEP 01 — UNIVERSE</div>
     <div class="card-title">觀測美股 11 大板塊 ETF</div>
@@ -237,10 +357,10 @@
       <div class="sector-cell"><div class="sector-icon">🏥</div><div class="sector-info"><div class="sector-name">XLV 醫療</div><div class="sector-desc">追蹤製藥、醫療器材等公司</div></div></div>
       <div class="sector-cell"><div class="sector-icon">⛽</div><div class="sector-info"><div class="sector-name">XLE 能源</div><div class="sector-desc">追蹤石油、天然氣等能源公司</div></div></div>
       <div class="sector-cell"><div class="sector-icon">🏭</div><div class="sector-info"><div class="sector-name">XLI 工業</div><div class="sector-desc">追蹤航空、機械等工業公司</div></div></div>
-      <div class="sector-cell"><div class="sector-icon">🛍️</div><div class="sector-info"><div class="sector-name">XLY 非必須消費</div><div class="sector-desc">追蹤亞馬遜、特斯拉等消費公司</div></div></div>
+      <div class="sector-cell"><div class="sector-icon">🛍️</div><div class="sector-info"><div class="sector-name">XLY 非必須消費品</div><div class="sector-desc">追蹤亞馬遜、特斯拉等消費公司</div></div></div>
       <div class="sector-cell"><div class="sector-icon">⛏️</div><div class="sector-info"><div class="sector-name">XLB 原物料</div><div class="sector-desc">追蹤鋼鐵、化工等原物料公司</div></div></div>
-      <div class="sector-cell"><div class="sector-icon">🛒</div><div class="sector-info"><div class="sector-name">XLP 必須消費</div><div class="sector-desc">追蹤食品、日用品等民生公司</div></div></div>
-      <div class="sector-cell"><div class="sector-icon">💡</div><div class="sector-info"><div class="sector-name">XLU 公用事業</div><div class="sector-desc">追蹤電力、瓦斯等公用事業公司</div></div></div>
+      <div class="sector-cell"><div class="sector-icon">🛒</div><div class="sector-info"><div class="sector-name">XLP 必須消費品</div><div class="sector-desc">追蹤食品、日用品等民生公司</div></div></div>
+      <div class="sector-cell"><div class="sector-icon">💡</div><div class="sector-info"><div class="sector-name">XLU 公用</div><div class="sector-desc">追蹤電力、瓦斯等公用事業公司</div></div></div>
       <div class="sector-cell"><div class="sector-icon">📡</div><div class="sector-info"><div class="sector-name">XLC 通訊</div><div class="sector-desc">追蹤Google、Meta等通訊公司</div></div></div>
       <div class="sector-cell"><div class="sector-icon">🏠</div><div class="sector-info"><div class="sector-name">XLRE 不動產</div><div class="sector-desc">追蹤房地產信託等公司</div></div></div>
     </div>
@@ -248,152 +368,162 @@
 
   <div class="arrow">↓</div>
 
-  <!-- Momentum Score Ranking -->
+  <!-- ② Momentum Score Ranking -->
   <div class="card">
-    <div class="card-label">STEP 02 — 動能評分排名（截至 2026-03-26）</div>
+    <div class="card-label">STEP 02 — 動能評分排名（截至 2026-04-07）</div>
     <div class="card-title">哪個產業最近表現最強？</div>
-    <div class="card-subtitle">各板塊近期量化動能強弱評分排名</div>
-
+    <div class="card-subtitle">各板塊近期動能強弱評分排名</div>
     <div class="selection-explain">入選 = 目前動能強勢，納入配置<br>未入選 = 動能不足，暫時不碰</div>
-
-    <div class="score-row">
-      <div class="score-rank">#1</div>
-      <div class="score-label">能源</div>
-      <div class="score-ticker">XLE</div>
-      <div class="score-bar-bg"><div class="score-bar bar-in1" style="width:95%;"></div></div>
-      <div class="score-tag tag-in">入選</div>
-    </div>
-    <hr class="score-divider">
 
     <div class="score-row">
       <div class="score-rank">#2</div>
       <div class="score-label">原物料</div>
       <div class="score-ticker">XLB</div>
-      <div class="score-bar-bg"><div class="score-bar bar-out" style="width:5%;"></div></div>
+      <div class="score-bar-bg"><div class="score-bar bar-in1" style="width:88%;"></div></div>
+      <div class="score-tag tag-in">入選</div>
+    </div>
+    <hr class="score-divider">
+    <div class="score-row">
+      <div class="score-rank">#1</div>
+      <div class="score-label">能源</div>
+      <div class="score-ticker">XLE</div>
+      <div class="score-bar-bg"><div class="score-bar bar-out" style="width:95%;"></div></div>
       <div class="score-tag tag-out">未入選</div>
     </div>
     <div class="score-row">
       <div class="score-rank">#3</div>
-      <div class="score-label">公用事業</div>
-      <div class="score-ticker">XLU</div>
-      <div class="score-bar-bg"><div class="score-bar bar-out" style="width:5%;"></div></div>
+      <div class="score-label">科技</div>
+      <div class="score-ticker">XLK</div>
+      <div class="score-bar-bg"><div class="score-bar bar-out" style="width:79%;"></div></div>
       <div class="score-tag tag-out">未入選</div>
     </div>
     <div class="score-row">
       <div class="score-rank">#4</div>
-      <div class="score-label">金融</div>
-      <div class="score-ticker">XLF</div>
-      <div class="score-bar-bg"><div class="score-bar bar-out" style="width:5%;"></div></div>
+      <div class="score-label">公用</div>
+      <div class="score-ticker">XLU</div>
+      <div class="score-bar-bg"><div class="score-bar bar-out" style="width:75%;"></div></div>
       <div class="score-tag tag-out">未入選</div>
     </div>
     <div class="score-row">
       <div class="score-rank">#5</div>
-      <div class="score-label">工業</div>
-      <div class="score-ticker">XLI</div>
-      <div class="score-bar-bg"><div class="score-bar bar-out" style="width:5%;"></div></div>
+      <div class="score-label">不動產</div>
+      <div class="score-ticker">XLRE</div>
+      <div class="score-bar-bg"><div class="score-bar bar-out" style="width:74%;"></div></div>
       <div class="score-tag tag-out">未入選</div>
     </div>
     <div class="score-row">
       <div class="score-rank">#6</div>
-      <div class="score-label">必須消費</div>
-      <div class="score-ticker">XLP</div>
-      <div class="score-bar-bg"><div class="score-bar bar-out" style="width:5%;"></div></div>
+      <div class="score-label">工業</div>
+      <div class="score-ticker">XLI</div>
+      <div class="score-bar-bg"><div class="score-bar bar-out" style="width:68%;"></div></div>
       <div class="score-tag tag-out">未入選</div>
     </div>
     <div class="score-row">
       <div class="score-rank">#7</div>
-      <div class="score-label">醫療</div>
-      <div class="score-ticker">XLV</div>
-      <div class="score-bar-bg"><div class="score-bar bar-out" style="width:5%;"></div></div>
-      <div class="score-tag tag-out">未入選</div>
+      <div class="score-label">大盤</div>
+      <div class="score-ticker">SPY</div>
+      <div class="score-bar-bg"><div class="score-bar bar-out" style="width:57%;"></div></div>
+      <div class="score-tag tag-spy">基準</div>
     </div>
     <div class="score-row">
       <div class="score-rank">#8</div>
-      <div class="score-label">非必須消費</div>
-      <div class="score-ticker">XLY</div>
-      <div class="score-bar-bg"><div class="score-bar bar-out" style="width:5%;"></div></div>
+      <div class="score-label">金融</div>
+      <div class="score-ticker">XLF</div>
+      <div class="score-bar-bg"><div class="score-bar bar-out" style="width:49%;"></div></div>
       <div class="score-tag tag-out">未入選</div>
     </div>
     <div class="score-row">
       <div class="score-rank">#9</div>
-      <div class="score-label">大盤</div>
-      <div class="score-ticker">SPY</div>
-      <div class="score-bar-bg"><div class="score-bar bar-out" style="width:5%;"></div></div>
-      <div class="score-tag tag-spy">基準</div>
+      <div class="score-label">通訊</div>
+      <div class="score-ticker">XLC</div>
+      <div class="score-bar-bg"><div class="score-bar bar-out" style="width:40%;"></div></div>
+      <div class="score-tag tag-out">未入選</div>
     </div>
     <div class="score-row">
       <div class="score-rank">#10</div>
-      <div class="score-label">不動產</div>
-      <div class="score-ticker">XLRE</div>
-      <div class="score-bar-bg"><div class="score-bar bar-out" style="width:5%;"></div></div>
+      <div class="score-label">醫療</div>
+      <div class="score-ticker">XLV</div>
+      <div class="score-bar-bg"><div class="score-bar bar-out" style="width:35%;"></div></div>
       <div class="score-tag tag-out">未入選</div>
     </div>
     <div class="score-row">
       <div class="score-rank">#11</div>
-      <div class="score-label">科技</div>
-      <div class="score-ticker">XLK</div>
-      <div class="score-bar-bg"><div class="score-bar bar-out" style="width:5%;"></div></div>
+      <div class="score-label">必須消費品</div>
+      <div class="score-ticker">XLP</div>
+      <div class="score-bar-bg"><div class="score-bar bar-out" style="width:28%;"></div></div>
       <div class="score-tag tag-out">未入選</div>
     </div>
     <div class="score-row">
       <div class="score-rank">#12</div>
-      <div class="score-label">通訊</div>
-      <div class="score-ticker">XLC</div>
-      <div class="score-bar-bg"><div class="score-bar bar-out" style="width:5%;"></div></div>
+      <div class="score-label">非必須消費品</div>
+      <div class="score-ticker">XLY</div>
+      <div class="score-bar-bg"><div class="score-bar bar-out" style="width:10%;"></div></div>
       <div class="score-tag tag-out">未入選</div>
     </div>
 
-    <div class="score-note">
-      本期僅 <strong>XLE（能源）</strong> 動能強勢顯著入選<br>其餘 10 板塊動能均不足，不納入配置
-    </div>
+    <div class="score-note">本期入選：<strong>XLB（原物料）</strong><br>其餘 10 板塊動能不足，不納入配置</div>
   </div>
 
   <div class="arrow">↓</div>
 
-  <!-- Allocation History -->
+  <!-- ③ 近期持倉變化 -->
   <div class="card">
-    <div class="card-label">STEP 03 — 近期持倉配置變化（2025-12-16 → 2026-03-24）</div>
+    <div class="card-label">STEP 03 — 近 6 個月持倉配置變化（2025-10-07 → 2026-04-07）</div>
     <div class="card-title">每次再平衡板塊組成</div>
     <div class="step-intro">每兩週重新評估一次，根據動能強弱調整持有的產業</div>
 
     <div class="alloc-wrap">
       <div class="alloc-bars">
         <div class="alloc-col">
-          <div class="alloc-seg seg-xlv" style="height:42px;"></div>
-          <div class="alloc-seg seg-xly" style="height:42px;"></div>
-          <div class="alloc-seg seg-xlf" style="height:36px;"></div>
+          <div class="alloc-seg" style="height:36px;background:#5A7A9A;"></div>
+          <div class="alloc-seg" style="height:42px;background:#6A9A7A;"></div>
+          <div class="alloc-seg" style="height:42px;background:#6A8898;"></div>
+        </div>        <div class="alloc-col">
+          <div class="alloc-seg" style="height:42px;background:#6A9A7A;"></div>
+          <div class="alloc-seg" style="height:48px;background:#6A8898;"></div>
+          <div class="alloc-seg" style="height:30px;background:#A87898;"></div>
+        </div>        <div class="alloc-col">
+          <div class="alloc-seg" style="height:84px;background:#5A7A9A;"></div>
+          <div class="alloc-seg" style="height:36px;background:#C4A448;"></div>
+        </div>        <div class="alloc-col">
+          <div class="alloc-seg" style="height:84px;background:#6A9A7A;"></div>
+          <div class="alloc-seg" style="height:36px;background:#8A5A30;"></div>
+        </div>        <div class="alloc-col">
+          <div class="alloc-seg" style="height:120px;background:#6A9A7A;"></div>
+        </div>        <div class="alloc-col">
+          <div class="alloc-seg" style="height:36px;background:#7A8A9A;"></div>
+          <div class="alloc-seg" style="height:42px;background:#6A9A7A;"></div>
+          <div class="alloc-seg" style="height:42px;background:#C4A448;"></div>
+        </div>        <div class="alloc-col">
+          <div class="alloc-seg" style="height:60px;background:#7A8A9A;"></div>
+          <div class="alloc-seg" style="height:60px;background:#A89870;"></div>
+        </div>        <div class="alloc-col">
+          <div class="alloc-seg" style="height:120px;background:#A89870;"></div>
+        </div>        <div class="alloc-col">
+          <div class="alloc-seg" style="height:66px;background:#8A5A30;"></div>
+          <div class="alloc-seg" style="height:54px;background:#A89870;"></div>
+        </div>        <div class="alloc-col">
+          <div class="alloc-seg" style="height:54px;background:#8A5A30;"></div>
+          <div class="alloc-seg" style="height:36px;background:#A89870;"></div>
+          <div class="alloc-seg" style="height:30px;background:#7A9868;"></div>
+        </div>        <div class="alloc-col">
+          <div class="alloc-seg" style="height:66px;background:#8A5A30;"></div>
+          <div class="alloc-seg" style="height:54px;background:#6A8898;"></div>
+        </div>        <div class="alloc-col">
+          <div class="alloc-seg" style="height:72px;background:#8A5A30;"></div>
+          <div class="alloc-seg" style="height:48px;background:#6A8898;"></div>
+        </div>        <div class="alloc-col">
+          <div class="alloc-seg" style="height:120px;background:#8A5A30;"></div>
+        </div>        <div class="alloc-col">
+          <div class="alloc-seg" style="height:120px;background:#A89870;"></div>
         </div>
-        <div class="alloc-col">
-          <div class="alloc-seg seg-xlf" style="height:60px;"></div>
-          <div class="alloc-seg seg-xlb" style="height:60px;"></div>
-        </div>
-        <div class="alloc-col">
-          <div class="alloc-seg seg-xlb" style="height:120px;"></div>
-        </div>
-        <div class="alloc-col">
-          <div class="alloc-seg seg-xle" style="height:66px;"></div>
-          <div class="alloc-seg seg-xlb" style="height:54px;"></div>
-        </div>
-        <div class="alloc-col">
-          <div class="alloc-seg seg-xle" style="height:54px;"></div>
-          <div class="alloc-seg seg-xlb" style="height:36px;"></div>
-          <div class="alloc-seg seg-xlp" style="height:30px;"></div>
-        </div>
-        <div class="alloc-col">
-          <div class="alloc-seg seg-xle" style="height:66px;"></div>
-          <div class="alloc-seg seg-xlu" style="height:54px;"></div>
-        </div>
-        <div class="alloc-col">
-          <div class="alloc-seg seg-xle" style="height:72px;"></div>
-          <div class="alloc-seg seg-xlu" style="height:48px;"></div>
-        </div>
-        <div class="alloc-col">
-          <div class="alloc-seg seg-xle" style="height:120px;"></div>
-        </div>
-
       </div>
-
       <div class="alloc-dates">
+        <div class="alloc-date">10/07</div>
+        <div class="alloc-date">10/21</div>
+        <div class="alloc-date">11/04</div>
+        <div class="alloc-date">11/18</div>
+        <div class="alloc-date">12/02</div>
         <div class="alloc-date">12/16</div>
         <div class="alloc-date">12/30</div>
         <div class="alloc-date">01/13</div>
@@ -402,23 +532,30 @@
         <div class="alloc-date">02/24</div>
         <div class="alloc-date">03/10</div>
         <div class="alloc-date">03/24</div>
+        <div class="alloc-date">04/07</div>
       </div>
-
       <div class="alloc-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#5A7A9A;"></div>XLK 科技</div>
         <div class="legend-item"><div class="legend-dot" style="background:#7A8A9A;"></div>XLF 金融</div>
         <div class="legend-item"><div class="legend-dot" style="background:#6A9A7A;"></div>XLV 醫療</div>
         <div class="legend-item"><div class="legend-dot" style="background:#8A5A30;"></div>XLE 能源</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#C4A448;"></div>XLY 非必須消費</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#C4A448;"></div>XLY 非必須消費品</div>
         <div class="legend-item"><div class="legend-dot" style="background:#A89870;"></div>XLB 原物料</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#7A9868;"></div>XLP 必須消費</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#6A8898;"></div>XLU 公用事業</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#7A9868;"></div>XLP 必須消費品</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#6A8898;"></div>XLU 公用</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#A87898;"></div>XLRE 不動產</div>
       </div>
+    </div>
+
+    <div style="margin-top:18px;padding-top:16px;border-top:1px solid #D6D0C4;">
+      <div class="card-title">這就是板塊輪動量化的精髓</div>
+      <p style="font-size:13px;font-weight:400;color:#4A3828;line-height:1.7;margin-bottom:12px;">不同時期，市場資金會流向不同的強勢產業。這套策略每兩週重新計算各板塊動能分數，哪裡強就配置到哪裡，動能消退就換下一棒。</p>
+      <p style="font-size:13px;font-weight:700;color:#2A2018;line-height:1.7;">不預測未來，只跟著現在最強的力量走。動能在哪裡，資金就在哪裡。</p>
     </div>
   </div>
 
-</div>
+</div><!-- /section -->
 
-<!-- Disclaimer -->
 <div class="disclaimer">
   <strong>免責聲明</strong>｜本頁面所提供之所有內容，包括策略思路、板塊排名及持倉數據，均僅為教育與研究目的之分享，不構成任何形式的投資建議、推薦或招攬。任何投資決策應基於自身獨立研究與風險承受能力，投資人須自行負擔投資決策之責任。板塊ETF之價格受市場因素影響，可能產生虧損。過往績效不保證未來結果，市場有風險，投資需謹慎。
 </div>
