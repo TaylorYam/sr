@@ -219,6 +219,25 @@
     color: #796040;
     font-weight: 700;
   }
+  .alloc-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    margin-top: 6px;
+  }
+  .alloc-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    color: #4A3828;
+    font-weight: 600;
+  }
+  .alloc-legend-dot {
+    width: 10px; height: 10px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
 
   /* ── Momentum Score Bars ── */
   .score-row {
@@ -494,6 +513,12 @@
         <div class="alloc-date">03/10</div>
         <div class="alloc-date">03/24</div>
         <div class="alloc-date">04/07</div>
+      </div>
+      <div class="alloc-legend">
+        <div class="alloc-legend-item"><div class="alloc-legend-dot" style="background:#8A5A30;"></div>XLE 能源</div>
+        <div class="alloc-legend-item"><div class="alloc-legend-dot" style="background:#A89870;"></div>XLB 原物料</div>
+        <div class="alloc-legend-item"><div class="alloc-legend-dot" style="background:#7A9868;"></div>XLP 必須消費品</div>
+        <div class="alloc-legend-item"><div class="alloc-legend-dot" style="background:#6A8898;"></div>XLU 公用</div>
       </div>
     </div>
 
