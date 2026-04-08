@@ -178,51 +178,46 @@
   .sector-desc { font-size: 9px; font-weight: 400; color: #7A6850; margin-top: 1px; line-height: 1.4; }
 
   /* ── Allocation Chart ── */
-  .alloc-wrap { display: flex; flex-direction: column; gap: 8px; }
+  .alloc-wrap { display: flex; flex-direction: column; gap: 6px; }
   .alloc-bars {
     display: flex;
     align-items: flex-end;
-    gap: 3px;
-    height: 120px;
+    gap: 8px;
+    height: 260px;
   }
   .alloc-col {
     flex: 1;
     height: 100%;
     display: flex;
     flex-direction: column-reverse;
-    border-radius: 5px 5px 0 0;
-    overflow: hidden;
   }
-  .alloc-seg { width: 100%; flex-shrink: 0; }
+  .alloc-seg {
+    width: 100%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px solid #FFFFFF;
+    box-sizing: border-box;
+  }
+  .seg-label {
+    color: #FFFFFF;
+    font-size: 10px;
+    font-weight: 800;
+    text-align: center;
+    line-height: 1.25;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  }
   .alloc-dates {
     display: flex;
-    gap: 3px;
+    gap: 8px;
   }
   .alloc-date {
     flex: 1;
     text-align: center;
-    font-size: 8.5px;
-    color: #9A9080;
-    font-weight: 600;
-  }
-  .alloc-legend {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px 10px;
-    margin-top: 2px;
-  }
-  .legend-item {
-    display: flex;
-    align-items: center;
-    gap: 4px;
     font-size: 10px;
-    color: #4A3828;
-    font-weight: 600;
-  }
-  .legend-dot {
-    width: 9px; height: 9px;
-    border-radius: 3px;
-    flex-shrink: 0;
+    color: #796040;
+    font-weight: 700;
   }
 
   /* ── Momentum Score Bars ── */
@@ -474,22 +469,22 @@
     <div class="alloc-wrap">
       <div class="alloc-bars">
         <div class="alloc-col">
-          <div class="alloc-seg" style="height:66px;background:#8A5A30;"></div>
-          <div class="alloc-seg" style="height:54px;background:#A89870;"></div>
+          <div class="alloc-seg" style="height:143px;background:#8A5A30;"><span class="seg-label"><b>XLE</b><br>55%</span></div>
+          <div class="alloc-seg" style="height:117px;background:#A89870;"><span class="seg-label"><b>XLB</b><br>45%</span></div>
         </div>        <div class="alloc-col">
-          <div class="alloc-seg" style="height:54px;background:#8A5A30;"></div>
-          <div class="alloc-seg" style="height:36px;background:#A89870;"></div>
-          <div class="alloc-seg" style="height:30px;background:#7A9868;"></div>
+          <div class="alloc-seg" style="height:117px;background:#8A5A30;"><span class="seg-label"><b>XLE</b><br>45%</span></div>
+          <div class="alloc-seg" style="height:78px;background:#A89870;"><span class="seg-label"><b>XLB</b><br>30%</span></div>
+          <div class="alloc-seg" style="height:65px;background:#7A9868;"><span class="seg-label"><b>XLP</b><br>25%</span></div>
         </div>        <div class="alloc-col">
-          <div class="alloc-seg" style="height:66px;background:#8A5A30;"></div>
-          <div class="alloc-seg" style="height:54px;background:#6A8898;"></div>
+          <div class="alloc-seg" style="height:143px;background:#8A5A30;"><span class="seg-label"><b>XLE</b><br>55%</span></div>
+          <div class="alloc-seg" style="height:117px;background:#6A8898;"><span class="seg-label"><b>XLU</b><br>45%</span></div>
         </div>        <div class="alloc-col">
-          <div class="alloc-seg" style="height:72px;background:#8A5A30;"></div>
-          <div class="alloc-seg" style="height:48px;background:#6A8898;"></div>
+          <div class="alloc-seg" style="height:156px;background:#8A5A30;"><span class="seg-label"><b>XLE</b><br>60%</span></div>
+          <div class="alloc-seg" style="height:104px;background:#6A8898;"><span class="seg-label"><b>XLU</b><br>40%</span></div>
         </div>        <div class="alloc-col">
-          <div class="alloc-seg" style="height:120px;background:#8A5A30;"></div>
+          <div class="alloc-seg" style="height:260px;background:#8A5A30;"><span class="seg-label"><b>XLE</b><br>100%</span></div>
         </div>        <div class="alloc-col">
-          <div class="alloc-seg" style="height:120px;background:#A89870;"></div>
+          <div class="alloc-seg" style="height:260px;background:#A89870;"><span class="seg-label"><b>XLB</b><br>100%</span></div>
         </div>
       </div>
       <div class="alloc-dates">
@@ -499,12 +494,6 @@
         <div class="alloc-date">03/10</div>
         <div class="alloc-date">03/24</div>
         <div class="alloc-date">04/07</div>
-      </div>
-      <div class="alloc-legend">
-        <div class="legend-item"><div class="legend-dot" style="background:#8A5A30;"></div>XLE 能源</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#A89870;"></div>XLB 原物料</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#7A9868;"></div>XLP 必須消費品</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#6A8898;"></div>XLU 公用</div>
       </div>
     </div>
 
