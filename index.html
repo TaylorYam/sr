@@ -157,9 +157,9 @@
   }
   .spy-icon{font-size:28px;flex-shrink:0;}
   .spy-body{flex:1;}
-  .spy-label{font-size:10px;font-weight:700;letter-spacing:2px;color:var(--muted);margin-bottom:2px;}
+  .spy-label{font-size:11px;font-weight:700;letter-spacing:2px;color:var(--muted);margin-bottom:2px;}
   .spy-name{font-size:16px;font-weight:900;color:#FAF6F0;}
-  .spy-sub{font-size:11px;color:var(--muted);font-weight:500;margin-top:2px;}
+  .spy-sub{font-size:12px;color:var(--muted);font-weight:500;margin-top:2px;}
   .spy-ticker{
     font-size:18px;font-weight:900;color:#FAF6F0;
     background:rgba(255,255,255,.12);
@@ -197,8 +197,8 @@
   }
   .sector-icon{font-size:20px;flex-shrink:0;}
   .sector-info{flex:1;}
-  .sector-name{font-size:11px;font-weight:700;color:var(--ink-2);}
-  .sector-desc{font-size:9px;font-weight:400;color:var(--muted);margin-top:1px;line-height:1.4;}
+  .sector-name{font-size:12px;font-weight:700;color:var(--ink-2);}
+  .sector-desc{font-size:11px;font-weight:400;color:var(--muted);margin-top:1px;line-height:1.4;}
 
   /* ===== Arrow ===== */
   .arrow{text-align:center;font-size:18px;color:var(--muted);margin:6px 0;}
@@ -217,7 +217,7 @@
   /* ===== Score Group (入選 / 未入選) ===== */
   .score-group{margin-bottom:16px;}
   .score-group-label{
-    font-size:11px;font-weight:800;letter-spacing:1.5px;
+    font-size:12px;font-weight:800;letter-spacing:1.5px;
     color:var(--muted);margin-bottom:8px;
   }
   .score-group-label.label-in{color:#1A5A38;}
@@ -233,23 +233,23 @@
   }
   .score-group--out .score-row{margin-bottom:5px;}
   .score-group--out .score-bar-bg{height:16px;border-radius:8px;}
-  .score-group--out .score-bar{border-radius:8px;font-size:9px;padding-right:5px;}
+  .score-group--out .score-bar{border-radius:8px;font-size:10px;padding-right:5px;}
   .score-group-toggle{
     display:inline-flex;align-items:center;gap:5px;
-    font-size:11px;font-weight:600;color:var(--muted);
+    font-size:12px;font-weight:600;color:var(--muted);
     background:none;border:1px solid var(--line-2);border-radius:6px;
     padding:5px 10px;cursor:pointer;margin-bottom:10px;
   }
-  .score-group-toggle .arrow{font-size:10px;transition:transform .2s;display:inline;margin:0;padding:0;color:inherit;text-align:left;}
+  .score-group-toggle .arrow{font-size:11px;transition:transform .2s;display:inline;margin:0;padding:0;color:inherit;text-align:left;}
   .score-group-toggle[aria-expanded="true"] .arrow{transform:rotate(180deg);}
 
   /* ===== Score Bars ===== */
   .score-row{
     display:flex;align-items:center;gap:7px;margin-bottom:7px;
   }
-  .score-rank{font-size:10px;color:var(--muted);width:16px;text-align:center;flex-shrink:0;}
-  .score-label{font-size:11.5px;color:var(--ink-2);width:50px;text-align:right;flex-shrink:0;}
-  .score-ticker{font-size:10px;color:var(--muted);width:30px;flex-shrink:0;}
+  .score-rank{font-size:11px;color:var(--muted);width:16px;text-align:center;flex-shrink:0;}
+  .score-label{font-size:12.5px;color:var(--ink-2);width:54px;text-align:right;flex-shrink:0;}
+  .score-ticker{font-size:11px;color:var(--muted);width:34px;flex-shrink:0;}
   .score-bar-bg{
     flex:1;height:22px;
     background:var(--bg-soft);
@@ -261,7 +261,7 @@
     border-radius:11px;
     display:flex;align-items:center;justify-content:flex-end;
     padding-right:7px;
-    font-size:10px;font-weight:800;color:#FFF;
+    font-size:11px;font-weight:800;color:#FFF;
   }
   .bar-in1{background:linear-gradient(90deg,#3A8A60,#2A6A48);}
   .bar-in2{background:linear-gradient(90deg,#5AAA80,#3A8A60);}
@@ -270,7 +270,7 @@
   .bar-out{background:linear-gradient(90deg,#A8A498,#908C84);}
 
   .score-tag{
-    font-size:9.5px;font-weight:800;
+    font-size:11px;font-weight:800;
     border-radius:6px;
     padding:2px 5px;
     flex-shrink:0;
@@ -309,14 +309,14 @@
     border:1.5px solid #FFFFFF;
   }
   .seg-label{
-    color:#FFFFFF;font-size:10px;font-weight:800;
+    color:#FFFFFF;font-size:11px;font-weight:800;
     text-align:center;line-height:1.25;
     text-shadow:0 1px 2px rgba(0,0,0,0.3);
   }
   .alloc-dates{display:flex;gap:8px;}
   .alloc-date{
     flex:1;text-align:center;
-    font-size:10px;color:var(--ink-soft);font-weight:700;
+    font-size:11px;color:var(--ink-soft);font-weight:700;
   }
   .alloc-legend{
     display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:6px;
@@ -381,24 +381,6 @@
   }
   footer p{margin:4px 0;}
 
-  /* ===== Dot Nav ===== */
-  .dot-nav{
-    position:fixed;right:12px;top:50%;transform:translateY(-50%);
-    z-index:100;
-    display:flex;flex-direction:column;gap:10px;
-    padding:8px 4px;
-  }
-  .dot-nav a{
-    display:block;width:8px;height:8px;
-    border-radius:50%;
-    background:var(--line-2);
-    transition:background .25s,transform .25s;
-    text-indent:-9999px;overflow:hidden;
-  }
-  .dot-nav a.active{
-    background:var(--accent);
-    transform:scale(1.35);
-  }
 
   /* ===== Footer upgrade ===== */
   footer .disclaimer-box{
@@ -443,16 +425,13 @@
     }
 
     /* Arrow between sections — don't snap */
-    .arrow:not(.dot-nav .arrow){
+    .arrow{
       scroll-snap-align:none;
       font-size:24px;
       margin:0;
       padding:16px 0;
     }
 
-    /* Dot nav desktop */
-    .dot-nav{right:28px;gap:14px;}
-    .dot-nav a{width:10px;height:10px;}
 
     /* ===== Hero ===== */
     .hero{
@@ -848,30 +827,6 @@
 
 </div>
 
-<!-- Dot Nav -->
-<nav class="dot-nav" aria-label="頁面導航">
-  <a href="#step1" title="STEP 01">1</a>
-  <a href="#step2" title="STEP 02">2</a>
-  <a href="#step3" title="STEP 03">3</a>
-</nav>
-
-<script>
-(function(){
-  var dots=document.querySelectorAll('.dot-nav a');
-  var sections=document.querySelectorAll('section[id]');
-  if(!sections.length)return;
-  var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){
-        dots.forEach(function(d){d.classList.remove('active');});
-        var match=document.querySelector('.dot-nav a[href="#'+e.target.id+'"]');
-        if(match)match.classList.add('active');
-      }
-    });
-  },{threshold:0.35});
-  sections.forEach(function(s){io.observe(s);});
-})();
-</script>
 
 </body>
 </html>
