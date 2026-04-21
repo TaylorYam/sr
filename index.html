@@ -248,7 +248,7 @@
     display:flex;align-items:center;gap:7px;margin-bottom:7px;
   }
   .score-rank{font-size:11px;color:var(--muted);width:16px;text-align:center;flex-shrink:0;}
-  .score-label{font-size:12.5px;color:var(--ink-2);width:54px;text-align:right;flex-shrink:0;}
+  .score-label{font-size:12.5px;color:var(--ink-2);width:54px;text-align:right;flex-shrink:0;line-height:1.2;}
   .score-ticker{font-size:11px;color:var(--muted);width:34px;flex-shrink:0;}
   .score-bar-bg{
     flex:1;height:22px;
@@ -388,10 +388,9 @@
 
   ::selection{background:var(--accent);color:#fff;}
 
-  /* ===== Desktop: full-page snap deck ===== */
+  /* ===== Desktop: natural flow (no snap deck) ===== */
   @media (min-width:900px) and (hover:hover) and (pointer:fine){
     html{
-      scroll-snap-type: y mandatory;
       scroll-behavior: smooth;
     }
     body{font-size:18px;line-height:1.8;}
@@ -404,19 +403,12 @@
     .hero,
     .intro,
     section{
-      min-height:100vh;
-      scroll-snap-align:start;
-      scroll-snap-stop:normal;
       box-sizing:border-box;
       margin:0;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
       padding:80px 64px;
     }
 
     .arrow{
-      scroll-snap-align:none;
       font-size:24px;
       margin:0;
       padding:16px 0;
@@ -640,7 +632,7 @@
         </div>
         <div class="score-row">
           <div class="score-rank">#2</div>
-          <div class="score-label">非必須消費品</div>
+          <div class="score-label">非必須<br>消費品</div>
           <div class="score-ticker">XLY</div>
           <div class="score-bar-bg"><div class="score-bar bar-in4" style="width:77%;"></div></div>
           <div class="score-tag tag-in">入選</div>
@@ -696,7 +688,7 @@
         </div>
         <div class="score-row">
           <div class="score-rank">#9</div>
-          <div class="score-label">必須消費品</div>
+          <div class="score-label">必須<br>消費品</div>
           <div class="score-ticker">XLP</div>
           <div class="score-bar-bg"><div class="score-bar bar-out" style="width:37%;"></div></div>
           <div class="score-tag tag-out">未入選</div>
