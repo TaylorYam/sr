@@ -19,7 +19,7 @@
 <meta name="twitter:title" content="美股產業 ETF 量化動能策略｜Taylor Tam">
 <meta name="twitter:description" content="持有最強勢板塊，避開弱勢板塊。11 大美股產業 ETF，每兩週系統化輪動。">
 <meta name="twitter:image" content="https://tayloryam.github.io/sr/og.png">
-<!-- Last updated: 2026-04-12 -->
+<!-- Last updated: 2026-04-21 -->
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
@@ -279,11 +279,6 @@
   .tag-out{background:var(--chip);color:var(--muted);border:1px solid var(--line-2);}
   .tag-spy{background:var(--cool-soft);color:var(--cool);border:1px solid #9AA8D0;}
 
-  .score-divider{
-    border:none;
-    border-top:1.5px dashed var(--line-2);
-    margin:6px 0 8px;
-  }
   .score-note{
     text-align:center;
     font-size:12px;
@@ -380,9 +375,6 @@
     line-height:1.8;
   }
   footer p{margin:4px 0;}
-
-
-  /* ===== Footer upgrade ===== */
   footer .disclaimer-box{
     background:var(--chip);
     border:1px solid var(--line-2);
@@ -396,7 +388,7 @@
 
   ::selection{background:var(--accent);color:#fff;}
 
-  /* ===== Desktop: full-page snap deck (real mouse + wide viewport only) ===== */
+  /* ===== Desktop: full-page snap deck ===== */
   @media (min-width:900px) and (hover:hover) and (pointer:fine){
     html{
       scroll-snap-type: y mandatory;
@@ -409,7 +401,6 @@
       padding:0;
     }
 
-    /* Every snap target = full screen */
     .hero,
     .intro,
     section{
@@ -424,7 +415,6 @@
       padding:80px 64px;
     }
 
-    /* Arrow between sections — don't snap */
     .arrow{
       scroll-snap-align:none;
       font-size:24px;
@@ -432,8 +422,6 @@
       padding:16px 0;
     }
 
-
-    /* ===== Hero ===== */
     .hero{
       border-radius:0;
       padding:96px 64px;
@@ -451,7 +439,6 @@
     .hero .meta{margin-top:34px;font-size:14px;gap:12px;}
     .hero .meta span{padding:7px 14px;}
 
-    /* ===== Intro ===== */
     .intro{
       background:transparent;
       border:none;
@@ -470,7 +457,6 @@
       font-weight:500;
     }
 
-    /* ===== Section ===== */
     section{margin-bottom:0;}
     .sec-num{
       font-size:14px;
@@ -487,7 +473,6 @@
       width:100%;
     }
 
-    /* ===== Card desktop ===== */
     .card{
       max-width:1320px;
       width:100%;
@@ -499,7 +484,6 @@
     .card-subtitle{font-size:14px;}
     .step-intro{font-size:14px;}
 
-    /* ===== Explain card in STEP 01 ===== */
     .explain-card{
       max-width:820px;
       margin:0 auto 24px;
@@ -512,7 +496,6 @@
       color:var(--ink-2);
     }
 
-    /* ===== Universe — sector grid wider ===== */
     .spy-box{padding:18px 24px;gap:16px;}
     .spy-name{font-size:18px;}
     .spy-ticker{font-size:20px;padding:8px 16px;}
@@ -524,7 +507,6 @@
     .sector-name{font-size:13px;}
     .sector-desc{font-size:10.5px;}
 
-    /* ===== Score bars wider ===== */
     .selection-explain{font-size:14px;padding:12px 18px;}
     .score-row{gap:10px;margin-bottom:9px;}
     .score-label{font-size:13px;width:70px;}
@@ -534,7 +516,6 @@
     .score-tag{font-size:10.5px;padding:3px 7px;}
     .score-note{font-size:14px;margin-top:12px;}
 
-    /* ===== Allocation chart wider ===== */
     .alloc-bars{height:340px;gap:12px;}
     .seg-label{font-size:12px;}
     .alloc-date{font-size:12px;}
@@ -557,7 +538,6 @@
     .score-group--out .score-bar{border-radius:10px;font-size:10px;}
     .score-group-toggle{font-size:12px;padding:6px 12px;}
 
-    /* Footer — not a full snap page on desktop */
     footer{
       min-height:auto;
       scroll-snap-align:none;
@@ -642,114 +622,110 @@
 
 <!-- ============ STEP 02 ============ -->
 <section id="step2" aria-label="STEP 02 動能評分排名">
-  <span class="sec-num">STEP 02 — 動能評分排名（截至 2026-04-06）</span>
+  <span class="sec-num">STEP 02 — 動能評分排名（截至 2026-04-20）</span>
   <h2 class="sec-title">哪個產業最近表現最強？</h2>
 
   <div class="card">
     <div class="card-subtitle">各板塊近期動能強弱評分排名</div>
     <div class="selection-explain">入選 = 目前動能強勢，納入配置<br>未入選 = 動能不足，暫時不碰</div>
 
-    <!-- 入選群組 -->
     <div class="score-group score-group--in">
       <div class="score-group-label label-in">本期入選</div>
-      <div class="score-row">
-        <div class="score-rank">#1</div>
-        <div class="score-label">原物料</div>
-        <div class="score-ticker">XLB</div>
-        <div class="score-bar-bg"><div class="score-bar bar-in1" style="width:95%;"></div></div>
-        <div class="score-tag tag-in">入選</div>
-      </div>
-    </div>
-
-    <!-- 未入選群組 -->
-    <div class="score-group score-group--out">
-      <button class="score-group-toggle" aria-expanded="true" onclick="var list=this.nextElementSibling;var open=this.getAttribute('aria-expanded')==='true';this.setAttribute('aria-expanded',!open);list.style.display=open?'none':'block';">
-        <span class="arrow">▼</span> 未入選板塊（11 項）
-      </button>
-      <div class="score-group-list">
+        <div class="score-row">
+          <div class="score-rank">#1</div>
+          <div class="score-label">科技</div>
+          <div class="score-ticker">XLK</div>
+          <div class="score-bar-bg"><div class="score-bar bar-in1" style="width:95%;"></div></div>
+          <div class="score-tag tag-in">入選</div>
+        </div>
         <div class="score-row">
           <div class="score-rank">#2</div>
-          <div class="score-label">能源</div>
-          <div class="score-ticker">XLE</div>
-          <div class="score-bar-bg"><div class="score-bar bar-out" style="width:70%;"></div></div>
-          <div class="score-tag tag-out">未入選</div>
+          <div class="score-label">非必須消費品</div>
+          <div class="score-ticker">XLY</div>
+          <div class="score-bar-bg"><div class="score-bar bar-in4" style="width:77%;"></div></div>
+          <div class="score-tag tag-in">入選</div>
         </div>
+    </div>
+
+    <div class="score-group score-group--out">
+      <button class="score-group-toggle" aria-expanded="true" onclick="var list=this.nextElementSibling;var open=this.getAttribute('aria-expanded')==='true';this.setAttribute('aria-expanded',!open);list.style.display=open?'none':'block';">
+        <span class="arrow">▼</span> 未入選板塊（10 項）
+      </button>
+      <div class="score-group-list">
         <div class="score-row">
           <div class="score-rank">#3</div>
           <div class="score-label">不動產</div>
           <div class="score-ticker">XLRE</div>
-          <div class="score-bar-bg"><div class="score-bar bar-out" style="width:66%;"></div></div>
+          <div class="score-bar-bg"><div class="score-bar bar-out" style="width:73%;"></div></div>
           <div class="score-tag tag-out">未入選</div>
         </div>
         <div class="score-row">
           <div class="score-rank">#4</div>
-          <div class="score-label">公用</div>
-          <div class="score-ticker">XLU</div>
-          <div class="score-bar-bg"><div class="score-bar bar-out" style="width:63%;"></div></div>
-          <div class="score-tag tag-out">未入選</div>
+          <div class="score-label">大盤</div>
+          <div class="score-ticker">SPY</div>
+          <div class="score-bar-bg"><div class="score-bar bar-out" style="width:69%;"></div></div>
+          <div class="score-tag tag-spy">基準</div>
         </div>
         <div class="score-row">
           <div class="score-rank">#5</div>
-          <div class="score-label">科技</div>
-          <div class="score-ticker">XLK</div>
-          <div class="score-bar-bg"><div class="score-bar bar-out" style="width:52%;"></div></div>
+          <div class="score-label">通訊</div>
+          <div class="score-ticker">XLC</div>
+          <div class="score-bar-bg"><div class="score-bar bar-out" style="width:62%;"></div></div>
           <div class="score-tag tag-out">未入選</div>
         </div>
         <div class="score-row">
           <div class="score-rank">#6</div>
-          <div class="score-label">工業</div>
-          <div class="score-ticker">XLI</div>
-          <div class="score-bar-bg"><div class="score-bar bar-out" style="width:51%;"></div></div>
+          <div class="score-label">原物料</div>
+          <div class="score-ticker">XLB</div>
+          <div class="score-bar-bg"><div class="score-bar bar-out" style="width:58%;"></div></div>
           <div class="score-tag tag-out">未入選</div>
         </div>
-        <hr class="score-divider">
         <div class="score-row">
           <div class="score-rank">#7</div>
-          <div class="score-label">大盤</div>
-          <div class="score-ticker">SPY</div>
-          <div class="score-bar-bg"><div class="score-bar bar-out" style="width:43%;"></div></div>
-          <div class="score-tag tag-spy">基準</div>
+          <div class="score-label">工業</div>
+          <div class="score-ticker">XLI</div>
+          <div class="score-bar-bg"><div class="score-bar bar-out" style="width:58%;"></div></div>
+          <div class="score-tag tag-out">未入選</div>
         </div>
-        <hr class="score-divider">
         <div class="score-row">
           <div class="score-rank">#8</div>
-          <div class="score-label">必須消費品</div>
-          <div class="score-ticker">XLP</div>
-          <div class="score-bar-bg"><div class="score-bar bar-out" style="width:39%;"></div></div>
+          <div class="score-label">金融</div>
+          <div class="score-ticker">XLF</div>
+          <div class="score-bar-bg"><div class="score-bar bar-out" style="width:56%;"></div></div>
           <div class="score-tag tag-out">未入選</div>
         </div>
         <div class="score-row">
           <div class="score-rank">#9</div>
-          <div class="score-label">金融</div>
-          <div class="score-ticker">XLF</div>
-          <div class="score-bar-bg"><div class="score-bar bar-out" style="width:38%;"></div></div>
+          <div class="score-label">必須消費品</div>
+          <div class="score-ticker">XLP</div>
+          <div class="score-bar-bg"><div class="score-bar bar-out" style="width:37%;"></div></div>
           <div class="score-tag tag-out">未入選</div>
         </div>
         <div class="score-row">
           <div class="score-rank">#10</div>
-          <div class="score-label">通訊</div>
-          <div class="score-ticker">XLC</div>
-          <div class="score-bar-bg"><div class="score-bar bar-out" style="width:25%;"></div></div>
+          <div class="score-label">公用</div>
+          <div class="score-ticker">XLU</div>
+          <div class="score-bar-bg"><div class="score-bar bar-out" style="width:36%;"></div></div>
           <div class="score-tag tag-out">未入選</div>
         </div>
         <div class="score-row">
           <div class="score-rank">#11</div>
-          <div class="score-label">非必須消費品</div>
-          <div class="score-ticker">XLY</div>
-          <div class="score-bar-bg"><div class="score-bar bar-out" style="width:16%;"></div></div>
+          <div class="score-label">醫療</div>
+          <div class="score-ticker">XLV</div>
+          <div class="score-bar-bg"><div class="score-bar bar-out" style="width:32%;"></div></div>
           <div class="score-tag tag-out">未入選</div>
         </div>
         <div class="score-row">
           <div class="score-rank">#12</div>
-          <div class="score-label">醫療</div>
-          <div class="score-ticker">XLV</div>
+          <div class="score-label">能源</div>
+          <div class="score-ticker">XLE</div>
           <div class="score-bar-bg"><div class="score-bar bar-out" style="width:10%;"></div></div>
           <div class="score-tag tag-out">未入選</div>
         </div>
       </div>
     </div>
 
-    <div class="score-note">本期入選：<strong>XLB（原物料）</strong><br>其餘 10 板塊動能不足，不納入配置</div>
+    <div class="score-note">本期入選：<strong>XLK（科技）</strong>、<strong>XLY（非必須消費品）</strong><br>其餘 9 板塊動能不足，不納入配置</div>
   </div>
 </section>
 
@@ -757,7 +733,7 @@
 
 <!-- ============ STEP 03 ============ -->
 <section id="step3" aria-label="STEP 03 持倉配置變化">
-  <span class="sec-num">STEP 03 — 近 6 期持倉配置變化（2026-01-27 → 2026-04-07）</span>
+  <span class="sec-num">STEP 03 — 近 6 期持倉配置變化（2026-02-10 → 2026-04-21）</span>
   <h2 class="sec-title">每次再平衡板塊組成</h2>
 
   <div class="card">
@@ -766,39 +742,36 @@
     <div class="alloc-wrap">
       <div class="alloc-bars">
         <div class="alloc-col">
-          <div class="alloc-seg" style="height:143px;background:#8B4513;"><span class="seg-label"><b>XLE</b><br>55%</span></div>
-          <div class="alloc-seg" style="height:117px;background:#CC8822;"><span class="seg-label"><b>XLB</b><br>45%</span></div>
-        </div>
-        <div class="alloc-col">
           <div class="alloc-seg" style="height:117px;background:#8B4513;"><span class="seg-label"><b>XLE</b><br>45%</span></div>
           <div class="alloc-seg" style="height:78px;background:#CC8822;"><span class="seg-label"><b>XLB</b><br>30%</span></div>
           <div class="alloc-seg" style="height:65px;background:#3A7D44;"><span class="seg-label"><b>XLP</b><br>25%</span></div>
-        </div>
-        <div class="alloc-col">
+        </div>        <div class="alloc-col">
           <div class="alloc-seg" style="height:143px;background:#8B4513;"><span class="seg-label"><b>XLE</b><br>55%</span></div>
           <div class="alloc-seg" style="height:117px;background:#2E6B8A;"><span class="seg-label"><b>XLU</b><br>45%</span></div>
-        </div>
-        <div class="alloc-col">
+        </div>        <div class="alloc-col">
           <div class="alloc-seg" style="height:156px;background:#8B4513;"><span class="seg-label"><b>XLE</b><br>60%</span></div>
           <div class="alloc-seg" style="height:104px;background:#2E6B8A;"><span class="seg-label"><b>XLU</b><br>40%</span></div>
-        </div>
-        <div class="alloc-col">
+        </div>        <div class="alloc-col">
           <div class="alloc-seg" style="height:260px;background:#8B4513;"><span class="seg-label"><b>XLE</b><br>100%</span></div>
-        </div>
-        <div class="alloc-col">
+        </div>        <div class="alloc-col">
           <div class="alloc-seg" style="height:260px;background:#CC8822;"><span class="seg-label"><b>XLB</b><br>100%</span></div>
+        </div>        <div class="alloc-col">
+          <div class="alloc-seg" style="height:156px;background:#B07840;"><span class="seg-label"><b>XLK</b><br>60%</span></div>
+          <div class="alloc-seg" style="height:104px;background:#C4A448;"><span class="seg-label"><b>XLY</b><br>40%</span></div>
         </div>
       </div>
       <div class="alloc-dates">
-        <div class="alloc-date">01/27</div>
         <div class="alloc-date">02/10</div>
         <div class="alloc-date">02/24</div>
         <div class="alloc-date">03/10</div>
         <div class="alloc-date">03/24</div>
         <div class="alloc-date">04/07</div>
+        <div class="alloc-date">04/21</div>
       </div>
       <div class="alloc-legend">
+        <div class="alloc-legend-item"><div class="alloc-legend-dot" style="background:#B07840;"></div>XLK 科技</div>
         <div class="alloc-legend-item"><div class="alloc-legend-dot" style="background:#8B4513;"></div>XLE 能源</div>
+        <div class="alloc-legend-item"><div class="alloc-legend-dot" style="background:#C4A448;"></div>XLY 非必須消費品</div>
         <div class="alloc-legend-item"><div class="alloc-legend-dot" style="background:#CC8822;"></div>XLB 原物料</div>
         <div class="alloc-legend-item"><div class="alloc-legend-dot" style="background:#3A7D44;"></div>XLP 必須消費品</div>
         <div class="alloc-legend-item"><div class="alloc-legend-dot" style="background:#2E6B8A;"></div>XLU 公用</div>
@@ -814,7 +787,7 @@
 </section>
 
 <div class="next-rebal">
-  下次再平衡預計：<strong>2026-04-21</strong><br>
+  下次再平衡預計：<strong>2026-05-05</strong><br>
   屆時將重新計算動能分數並調整持倉配置
 </div>
 
@@ -826,7 +799,6 @@
 </footer>
 
 </div>
-
 
 </body>
 </html>
